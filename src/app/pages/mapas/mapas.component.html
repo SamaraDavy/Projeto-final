@@ -1,0 +1,275 @@
+<div class="pagina-mapas">
+
+  <header class="cabecalho">
+
+    <div>
+
+      <h1>
+        📚 Meu Conhecimento
+      </h1>
+
+      <p class="subtitulo">
+        Organize, consulte e edite tudo o que você aprendeu.
+      </p>
+
+    </div>
+
+    <a routerLink="/anotacao" class="botao-novo">
+
+      + Nova anotação
+
+    </a>
+
+  </header>
+
+  <div class="mensagem" [class.mensagem-sucesso]="tipoMensagem === 'sucesso'"
+    [class.mensagem-erro]="tipoMensagem === 'erro'" *ngIf="mensagem">
+
+    {{ mensagem }}
+
+  </div>
+
+  <section class="container" *ngIf="mapas.length > 0">
+
+    <article class="card" *ngFor="let mapa of mapas">
+
+      <div class="topo-card">
+
+        <div class="icone" [style.backgroundColor]="mapa.cor">
+
+          <img [src]="mapa.icone" [alt]="'Logo ' + mapa.titulo" class="logo-tecnologia">
+
+        </div>
+
+        <div class="titulo-card">
+
+          <h2>
+            {{ mapa.titulo }}
+          </h2>
+
+          <span class="contador">
+
+            {{ getQuantidadeAnotacoes(mapa.titulo) }}
+
+            {{
+            getQuantidadeAnotacoes(mapa.titulo) === 1
+            ? 'anotação'
+            : 'anotações'
+            }}
+
+          </span>
+
+        </div>
+
+      </div>
+
+      <p class="descricao">
+        {{ mapa.descricao }}
+      </p>
+
+      <span class="categoria">
+        {{ mapa.categoria }}
+      </span>
+
+      <div class="area-progresso">
+
+        <div class="informacao-progresso">
+
+          <span>
+            Evolução dos estudos
+          </span>
+
+          <strong>
+            {{ getProgresso(mapa.titulo) }}%
+          </strong>
+
+        </div>
+
+        <div class="barra-progresso">
+
+          <div class="progresso" [style.width.%]="getProgresso(mapa.titulo)" [style.backgroundColor]="mapa.cor">
+          </div>
+
+        </div>
+
+        <p class="meta-progresso">
+          Meta: 5 anotações para concluir esta tecnologia.
+        </p>
+
+      </div>
+
+      <div class="lista-anotacoes" *ngIf="getQuantidadeAnotacoes(mapa.titulo) > 0">
+
+        <div class="anotacao" *ngFor="let anotacao of getAnotacoesVisiveis(mapa.titulo)">
+
+          <div class="visualizacao-anotacao" *ngIf="anotacaoEmEdicaoId !== anotacao.id">
+
+            <div class="anotacao-conteudo">
+
+              <h3>
+                {{ anotacao.titulo }}
+              </h3>
+
+              <p>
+                {{ anotacao.conteudo }}
+              </p>
+
+              <small>
+                📅 {{ anotacao.data | date: 'dd/MM/yyyy' }}
+              </small>
+
+            </div>
+
+            <div class="acoes-anotacao">
+<button
+  type="button"
+  class="botao-editar"
+  (click)="iniciarEdicao(anotacao)">
+
+  Editar
+
+</button>
+
+<button
+  type="button"
+  class="botao-excluir"
+  (click)="excluirAnotacao(anotacao.id)">
+
+  Excluir
+
+</button>
+
+            </div>
+
+          </div>
+
+          <form class="formulario-edicao" *ngIf="anotacaoEmEdicaoId === anotacao.id"
+            (ngSubmit)="salvarEdicao(anotacao)">
+
+            <h3>
+              Editar anotação
+            </h3>
+
+            <div class="grupo-formulario">
+
+              <label for="tecnologia-{{ anotacao.id }}">
+                Tecnologia
+              </label>
+
+              <select id="tecnologia-{{ anotacao.id }}" name="tecnologia-{{ anotacao.id }}"
+                [(ngModel)]="tecnologiaEdicao" required>
+
+                <option value="">
+                  Selecione uma tecnologia
+                </option>
+
+                <option *ngFor="let item of mapas" [value]="item.titulo">
+                  {{ item.titulo }}
+                </option>
+
+              </select>
+
+            </div>
+
+            <div class="grupo-formulario">
+
+              <label for="titulo-{{ anotacao.id }}">
+                Título
+              </label>
+
+              <input id="titulo-{{ anotacao.id }}" name="titulo-{{ anotacao.id }}" type="text" maxlength="80"
+                [(ngModel)]="tituloEdicao" required>
+
+            </div>
+
+            <div class="grupo-formulario">
+
+              <label for="conteudo-{{ anotacao.id }}">
+                Conteúdo
+              </label>
+
+              <textarea id="conteudo-{{ anotacao.id }}" name="conteudo-{{ anotacao.id }}" rows="5" maxlength="1000"
+                [(ngModel)]="conteudoEdicao" required></textarea>
+
+            </div>
+
+            <div class="grupo-formulario">
+
+              <label for="data-{{ anotacao.id }}">
+                Data do estudo
+              </label>
+
+              <input id="data-{{ anotacao.id }}" name="data-{{ anotacao.id }}" type="date" [(ngModel)]="dataEdicao"
+                required>
+
+            </div>
+
+            <div class="acoes-edicao">
+
+              <button type="submit" class="botao-salvar">
+                Salvar alterações
+              </button>
+
+              <button type="button" class="botao-cancelar" (click)="cancelarEdicao()">
+                Cancelar
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <button type="button" class="mais-anotacoes" *ngIf="getQuantidadeAnotacoes(mapa.titulo) > 1"
+          (click)="alternarAnotacoes(mapa.titulo)">
+
+          <ng-container *ngIf="!estaExpandida(mapa.titulo)">
+            Ver mais {{ getQuantidadeOculta(mapa.titulo) }}
+            {{ getQuantidadeOculta(mapa.titulo) === 1 ? 'anotação' : 'anotações' }}
+          </ng-container>
+
+          <ng-container *ngIf="estaExpandida(mapa.titulo)">
+            Mostrar menos
+          </ng-container>
+
+        </button>
+
+      </div>
+
+      <div class="sem-anotacao" *ngIf="getQuantidadeAnotacoes(mapa.titulo) === 0">
+
+        <span>
+          📝
+        </span>
+
+        <p>
+          Nenhuma anotação registrada.
+        </p>
+
+        <a routerLink="/anotacao">
+          Criar anotação
+        </a>
+
+      </div>
+
+    </article>
+
+  </section>
+
+  <section class="sem-mapas" *ngIf="mapas.length === 0">
+
+    <span>
+      📚
+    </span>
+
+    <h2>
+      Nenhum mapa encontrado
+    </h2>
+
+    <p>
+      Ainda não existem mapas de conhecimento cadastrados.
+    </p>
+
+  </section>
+
+</div>

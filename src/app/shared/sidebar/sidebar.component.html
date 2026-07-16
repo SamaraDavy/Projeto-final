@@ -1,0 +1,222 @@
+<header class="cabecalho-mobile">
+
+  <div class="marca-mobile">
+
+    <div class="icone-logo-mobile">
+
+      <img
+        src="/imagens/logo-devpath.png"
+        alt="Logo do DevPath">
+
+    </div>
+
+    <div class="texto-marca-mobile">
+
+      <strong>
+        DevPath
+      </strong>
+
+      <span>
+        Mapa de Aprendizagem
+      </span>
+
+    </div>
+
+  </div>
+
+  <button
+    type="button"
+    class="botao-menu"
+    aria-label="Abrir menu de navegação"
+    [attr.aria-expanded]="menuAberto"
+    (click)="alternarMenu()">
+
+    <svg *ngIf="!menuAberto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+
+    <svg *ngIf="menuAberto" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </svg>
+
+  </button>
+
+</header>
+
+<div
+  class="fundo-menu"
+  [class.visivel]="menuAberto"
+  (click)="fecharMenu()">
+</div>
+
+<aside
+  class="sidebar"
+  [class.menu-aberto]="menuAberto">
+
+  <div class="cabecalho-sidebar">
+
+    <div class="logo">
+
+      <div class="icone-logo">
+
+        <img
+          src="/imagens/logo-devpath.png"
+          alt="Logo do DevPath"
+          class="imagem-logo">
+
+      </div>
+
+      <div class="texto-logo">
+
+        <h2>
+          DevPath
+        </h2>
+
+        <p>
+          Mapa de Aprendizagem
+        </p>
+
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      class="botao-fechar"
+      aria-label="Fechar menu de navegação"
+      (click)="fecharMenu()">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+
+    </button>
+
+  </div>
+
+  <div class="separador"></div>
+
+  <nav class="menu">
+
+    <p class="titulo-menu">
+      MENU PRINCIPAL
+    </p>
+
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="item-menu"
+      (click)="fecharMenu()">
+
+      <span class="icone-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354l-6-6zM13 7.207V14H10v-3.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V14H3V7.207l5-5 5 5z"/>
+        </svg>
+      </span>
+
+      <span class="texto-menu">
+        Dashboard
+      </span>
+
+    </a>
+
+    <a
+      routerLink="/mapas"
+      routerLinkActive="active"
+      class="item-menu"
+      (click)="fecharMenu()">
+
+      <span class="icone-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-11zm5 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-11zm5 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-11z"/>
+          <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v11A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-11zm5 0A1.5 1.5 0 0 1 7.5 1h3A1.5 1.5 0 0 1 12 2.5v11a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 6 13.5v-11zm5 0A1.5 1.5 0 0 1 12.5 1h3A1.5 1.5 0 0 1 17 2.5v11a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 11 13.5v-11z"/>
+        </svg>
+      </span>
+
+      <span class="texto-menu">
+        Meu Conhecimento
+      </span>
+
+    </a>
+
+    <a
+      routerLink="/anotacao"
+      routerLinkActive="active"
+      class="item-menu"
+      (click)="fecharMenu()">
+
+      <span class="icone-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+          <path d="M5 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm3 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm3 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+        </svg>
+      </span>
+
+      <span class="texto-menu">
+        Nova Anotação
+      </span>
+
+    </a>
+
+    <a
+      routerLink="/perfil"
+      routerLinkActive="active"
+      class="item-menu"
+      (click)="fecharMenu()">
+
+      <span class="icone-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+        </svg>
+      </span>
+
+      <span class="texto-menu">
+        Perfil
+      </span>
+
+    </a>
+
+  </nav>
+
+  <div class="rodape-sidebar">
+
+    <div class="mensagem-estudo">
+
+      <span class="icone-estudo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0c-.693 0-1.843.265-2.917.523l-.17.04C3.596.839 2.5 1.12 2.5 2.5V13.5c0 .5.5.5.5.5h.5v.5a.5.5 0 0 0 1 0V14h7v.5a.5.5 0 0 0 1 0V14h.5c.5 0 .5-.5.5-.5V2.5C13 1.12 11.404.839 10.087.563l-.17-.04C8.843.265 8.693 0 8 0zM7 13V3h2v10H7zm-1 0H4V3h2v10zm4 0V3h2v10h-2z"/>
+        </svg>
+      </span>
+
+      <div>
+
+        <strong>
+          Continue evoluindo!
+        </strong>
+
+        <p>
+          Registre seus aprendizados todos os dias.
+        </p>
+
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      class="logout"
+      (click)="logout()">
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M10 3.5v-1a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 1 1 0v1A1.5 1.5 0 0 1 9.5 15h-7A1.5 1.5 0 0 1 1 13.5v-11A1.5 1.5 0 0 1 2.5 1h7A1.5 1.5 0 0 1 11 2.5v1a.5.5 0 0 1-1 0z"/>
+        <path d="M15.354 7.646a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H5.5a.5.5 0 0 1 0-1h8.793l-1.647-1.646a.5.5 0 0 1 .708-.708l2 2z"/>
+      </svg>
+
+      Sair
+
+    </button>
+
+  </div>
+
+</aside>

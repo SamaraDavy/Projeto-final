@@ -1,0 +1,232 @@
+<div class="pagina-anotacao">
+
+  <header class="cabecalho">
+
+    <div class="cabecalho-texto">
+
+      <span class="icone-titulo">
+        📝
+      </span>
+
+      <div>
+
+        <h1>
+          Nova Anotação
+        </h1>
+
+        <p>
+          Registre o que você aprendeu durante seus estudos.
+        </p>
+
+      </div>
+
+    </div>
+
+    <a routerLink="/mapas" class="link-voltar">
+
+      Voltar para meus mapas
+
+    </a>
+
+  </header>
+
+  <section class="area-formulario">
+
+    <form class="formulario" #formAnotacao="ngForm" (ngSubmit)="salvar()">
+
+      <div class="introducao-formulario">
+
+        <div>
+
+          <h2>
+            Dados da anotação
+          </h2>
+
+          <p>
+            Preencha as informações sobre o conteúdo estudado.
+          </p>
+
+        </div>
+
+        <span class="aviso-obrigatorio">
+          * Campos obrigatórios
+        </span>
+
+      </div>
+
+      <div class="linha">
+
+        <div class="campo">
+
+          <label for="tecnologia">
+            Tecnologia
+            <span>*</span>
+          </label>
+
+          <select id="tecnologia" name="tecnologia" required [(ngModel)]="tecnologia">
+
+            <option value="">
+              Selecione uma tecnologia
+            </option>
+
+            <option *ngFor="let item of tecnologias" [value]="item">
+
+              {{ item }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="campo">
+
+          <label for="data">
+            Data do estudo
+            <span>*</span>
+          </label>
+
+          <input id="data" name="data" type="date" required [(ngModel)]="data">
+
+        </div>
+
+      </div>
+
+      <div class="campo">
+
+        <div class="label-com-contador">
+
+          <label for="titulo">
+            Título
+            <span>*</span>
+          </label>
+
+          <span class="contador">
+            {{ quantidadeTitulo }}/{{ limiteTitulo }}
+          </span>
+
+        </div>
+
+        <input id="titulo" name="titulo" type="text" required [maxlength]="limiteTitulo"
+          placeholder="Ex.: Tags semânticas no HTML" [(ngModel)]="titulo">
+
+        <small class="ajuda-campo">
+          Escreva um título curto para identificar sua anotação.
+        </small>
+
+      </div>
+
+      <div class="campo">
+
+        <div class="label-com-contador">
+
+          <label for="conteudo">
+            O que você aprendeu?
+            <span>*</span>
+          </label>
+
+          <span class="contador">
+            {{ quantidadeConteudo }}/{{ limiteConteudo }}
+          </span>
+
+        </div>
+
+        <textarea id="conteudo" name="conteudo" rows="9" required [maxlength]="limiteConteudo"
+          placeholder="Descreva o conteúdo estudado, exemplos, comandos e pontos importantes..." [(ngModel)]="conteudo">
+        </textarea>
+
+        <small class="ajuda-campo">
+          Você pode registrar exemplos, dúvidas, comandos e observações.
+        </small>
+
+      </div>
+
+      <div class="mensagem" [class.mensagem-sucesso]="tipoMensagem === 'sucesso'"
+        [class.mensagem-erro]="tipoMensagem === 'erro'" *ngIf="mensagem">
+
+        <span class="icone-mensagem">
+
+          {{ tipoMensagem === 'sucesso' ? '✅' : '⚠️' }}
+
+        </span>
+
+        <span>
+          {{ mensagem }}
+        </span>
+
+      </div>
+
+      <div class="acoes">
+
+        <button type="submit" class="btn-salvar" [disabled]="salvando">
+
+          <span>
+            {{ salvando ? '⏳' : '💾' }}
+
+          </span>
+
+          {{ salvando ? 'Salvando...' : 'Salvar anotação' }}
+
+        </button>
+
+        <button type="button" class="btn-cancelar" [disabled]="salvando" (click)="cancelar()">
+
+          Cancelar
+
+        </button>
+
+      </div>
+
+    </form>
+
+    <aside class="dicas">
+
+      <div class="icone-dicas">
+        💡
+      </div>
+
+      <h2>
+        Dicas para sua anotação
+      </h2>
+
+      <p>
+        Uma boa anotação ajuda você a revisar o conteúdo mais rapidamente.
+      </p>
+
+      <ul>
+
+        <li>
+          Use um título fácil de identificar.
+        </li>
+
+        <li>
+          Registre exemplos práticos.
+        </li>
+
+        <li>
+          Escreva com suas próprias palavras.
+        </li>
+
+        <li>
+          Anote dúvidas para pesquisar depois.
+        </li>
+
+      </ul>
+
+      <div class="dica-final">
+
+        <span>
+          🎯
+        </span>
+
+        <p>
+          Revise suas anotações regularmente para fortalecer o aprendizado.
+        </p>
+
+      </div>
+
+    </aside>
+
+  </section>
+
+</div>

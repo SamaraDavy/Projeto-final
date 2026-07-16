@@ -1,0 +1,709 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pagina-mapas {
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.cabecalho h1 {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+  margin: 0 0 8px;
+
+  color: #0f172a;
+}
+
+.subtitulo {
+  margin: 0;
+
+  color: #64748b;
+}
+
+.botao-novo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 20px;
+
+  color: #ffffff;
+  background: #2563eb;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.botao-novo:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+/* ========================================
+   MENSAGENS
+======================================== */
+
+.mensagem {
+  margin-bottom: 22px;
+  padding: 14px 18px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mensagem-sucesso {
+  color: #166534;
+  background: #dcfce7;
+
+  border: 1px solid #86efac;
+}
+
+.mensagem-erro {
+  color: #991b1b;
+  background: #fee2e2;
+
+  border: 1px solid #fca5a5;
+}
+
+/* ========================================
+   CONTAINER DOS CINCO CARDS
+======================================== */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+/* ========================================
+   CARD DE TECNOLOGIA
+======================================== */
+
+.card {
+  min-width: 0;
+  padding: 22px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.07);
+
+  overflow: hidden;
+}
+
+.topo-card {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* ========================================
+   ÍCONE DA TECNOLOGIA
+======================================== */
+
+.icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 68px;
+  height: 68px;
+
+  flex-shrink: 0;
+  overflow: hidden;
+
+  border-radius: 18px;
+}
+
+.logo-tecnologia {
+  width: 46px;
+  height: 46px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 3px 6px rgba(0, 0, 0, 0.13)
+    );
+}
+
+/* ========================================
+   TÍTULO DO CARD
+======================================== */
+
+.titulo-card {
+  min-width: 0;
+}
+
+.titulo-card h2 {
+  margin: 0 0 5px;
+
+  color: #0f172a;
+
+  font-size: 20px;
+
+  overflow-wrap: anywhere;
+}
+
+.contador {
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.descricao {
+  margin: 0 0 14px;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+.categoria {
+  display: inline-flex;
+
+  margin-bottom: 17px;
+  padding: 6px 11px;
+
+  color: #334155;
+  background: #f1f5f9;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ========================================
+   PROGRESSO
+======================================== */
+
+.area-progresso {
+  margin-bottom: 18px;
+}
+
+.informacao-progresso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+  margin-bottom: 7px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.informacao-progresso strong {
+  color: #2563eb;
+}
+
+.barra-progresso {
+  width: 100%;
+  height: 9px;
+
+  overflow: hidden;
+
+  background: #e2e8f0;
+
+  border-radius: 20px;
+}
+
+.progresso {
+  height: 100%;
+
+  border-radius: 20px;
+
+  transition: width 0.4s ease;
+}
+
+.meta-progresso {
+  margin: 7px 0 0;
+
+  color: #64748b;
+
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ========================================
+   LISTA DE ANOTAÇÕES
+======================================== */
+
+.lista-anotacoes {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.anotacao {
+  padding: 14px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.visualizacao-anotacao {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 14px;
+}
+
+.anotacao-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.anotacao-conteudo h3 {
+  margin: 0 0 7px;
+
+  color: #0f172a;
+
+  font-size: 16px;
+
+  overflow-wrap: anywhere;
+}
+
+.anotacao-conteudo p {
+  display: -webkit-box;
+
+  margin: 0 0 10px;
+
+  color: #475569;
+
+  font-size: 14px;
+  line-height: 1.45;
+
+  overflow: hidden;
+  overflow-wrap: anywhere;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+
+.anotacao-conteudo small {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+/* ========================================
+   AÇÕES DAS ANOTAÇÕES
+======================================== */
+
+.acoes-anotacao {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.botao-editar,
+.botao-excluir {
+  min-width: 66px;
+  height: 30px;
+
+  padding: 0 10px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.botao-editar {
+  color: #2563eb;
+  background: #eff6ff;
+
+  border: 1px solid #93c5fd;
+}
+
+.botao-editar:hover {
+  background: #dbeafe;
+}
+
+.botao-excluir {
+  color: #dc2626;
+  background: #fef2f2;
+
+  border: 1px solid #fca5a5;
+}
+
+.botao-excluir:hover {
+  background: #fee2e2;
+}
+
+/* ========================================
+   FORMULÁRIO DE EDIÇÃO
+======================================== */
+
+.formulario-edicao h3 {
+  margin: 0 0 18px;
+
+  color: #0f172a;
+
+  font-size: 18px;
+}
+
+.grupo-formulario {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+  margin-bottom: 15px;
+}
+
+.grupo-formulario label {
+  color: #334155;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.grupo-formulario input,
+.grupo-formulario select,
+.grupo-formulario textarea {
+  width: 100%;
+
+  padding: 10px 11px;
+
+  color: #0f172a;
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.grupo-formulario textarea {
+  resize: vertical;
+}
+
+.grupo-formulario input:focus,
+.grupo-formulario select:focus,
+.grupo-formulario textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.acoes-edicao {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.botao-salvar,
+.botao-cancelar {
+  padding: 10px 16px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.botao-salvar {
+  color: #ffffff;
+  background: #2563eb;
+
+  border: 1px solid #2563eb;
+}
+
+.botao-salvar:hover {
+  background: #1d4ed8;
+}
+
+.botao-cancelar {
+  color: #475569;
+  background: #ffffff;
+
+  border: 1px solid #cbd5e1;
+}
+
+.botao-cancelar:hover {
+  background: #f1f5f9;
+}
+
+/* ========================================
+   VER MAIS ANOTAÇÕES
+======================================== */
+
+.mais-anotacoes {
+  width: 100%;
+
+  margin-top: 2px;
+  padding: 10px 13px;
+
+  color: #2563eb;
+  background: #f8fafc;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.mais-anotacoes:hover {
+  color: #1d4ed8;
+  background: #eff6ff;
+
+  border-color: #93c5fd;
+}
+
+/* ========================================
+   NENHUMA ANOTAÇÃO
+======================================== */
+
+.sem-anotacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100px;
+  padding: 14px;
+
+  background: #f8fafc;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.sem-anotacao > span {
+  font-size: 25px;
+  line-height: 1;
+}
+
+.sem-anotacao p {
+  margin: 8px 0 6px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.sem-anotacao a {
+  color: #2563eb;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sem-anotacao a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   NENHUM MAPA
+======================================== */
+
+.sem-mapas {
+  padding: 42px;
+
+  background: #ffffff;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 16px;
+
+  text-align: center;
+}
+
+.sem-mapas > span {
+  font-size: 44px;
+}
+
+.sem-mapas h2 {
+  margin: 16px 0 8px;
+
+  color: #0f172a;
+}
+
+.sem-mapas p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .botao-novo {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    padding: 18px;
+  }
+
+  .cabecalho h1 {
+    font-size: 25px;
+  }
+
+  .topo-card {
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .icone {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 15px;
+  }
+
+  .logo-tecnologia {
+    width: 40px;
+    height: 40px;
+  }
+
+  .titulo-card h2 {
+    font-size: 18px;
+  }
+
+  .visualizacao-anotacao {
+    flex-direction: column;
+  }
+
+  .acoes-anotacao {
+    flex-direction: row;
+
+    width: 100%;
+  }
+
+  .botao-editar,
+  .botao-excluir {
+    flex: 1;
+  }
+
+  .acoes-edicao {
+    flex-direction: column;
+  }
+
+  .botao-salvar,
+  .botao-cancelar {
+    width: 100%;
+  }
+
+  .sem-anotacao {
+    min-height: 92px;
+    padding: 12px;
+  }
+
+  .sem-anotacao > span {
+    font-size: 23px;
+  }
+}

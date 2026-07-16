@@ -1,0 +1,14 @@
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

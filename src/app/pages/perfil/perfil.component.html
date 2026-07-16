@@ -1,0 +1,142 @@
+<div class="pagina-perfil">
+
+  <header class="cabecalho">
+
+    <h1>👤 Meu Perfil</h1>
+
+    <p>
+      Preencha suas informações e acompanhe sua evolução.
+    </p>
+
+  </header>
+
+  <section class="cartao-perfil">
+
+    <div class="avatar">
+      {{ getIniciais() }}
+    </div>
+
+    <div class="resumo-perfil">
+
+      <h2>
+        {{ perfil.nome || 'Seu nome' }}
+      </h2>
+
+      <p>
+        {{ perfil.curso || 'Seu curso' }}
+      </p>
+
+      <span>
+        {{ perfil.instituicao || 'Sua instituição' }}
+      </span>
+
+      <strong class="objetivo">
+        {{ perfil.objetivo || 'Seu objetivo profissional' }}
+      </strong>
+
+    </div>
+
+  </section>
+
+  <section class="formulario-perfil">
+
+    <h2>Informações pessoais</h2>
+
+    <form (ngSubmit)="salvarPerfil()">
+
+      <div class="linha">
+
+        <div class="campo">
+
+          <label for="nome">
+            Nome completo
+          </label>
+
+          <input id="nome" name="nome" type="text" placeholder="Digite seu nome" [(ngModel)]="perfil.nome">
+
+        </div>
+
+        <div class="campo">
+
+          <label for="curso">
+            Curso
+          </label>
+
+          <input id="curso" name="curso" type="text" placeholder="Ex.: Programação Front-End"
+            [(ngModel)]="perfil.curso">
+
+        </div>
+
+      </div>
+
+      <div class="linha">
+
+        <div class="campo">
+
+          <label for="instituicao">
+            Instituição
+          </label>
+
+          <input id="instituicao" name="instituicao" type="text" placeholder="Ex.: SENAI CIMATEC"
+            [(ngModel)]="perfil.instituicao">
+
+        </div>
+
+        <div class="campo">
+
+          <label for="objetivo">
+            Objetivo profissional
+          </label>
+
+          <input id="objetivo" name="objetivo" type="text" placeholder="Ex.: Desenvolvedora Front-End"
+            [(ngModel)]="perfil.objetivo">
+
+        </div>
+
+      </div>
+
+      <div class="campo">
+
+        <label for="sobre">
+          Sobre mim
+        </label>
+
+        <textarea id="sobre" name="sobre" rows="5" placeholder="Conte um pouco sobre sua jornada..."
+          [(ngModel)]="perfil.sobre">
+        </textarea>
+
+      </div>
+
+      <p class="mensagem" *ngIf="mensagem">
+
+        ✅ {{ mensagem }}
+
+      </p>
+
+      <div class="acoes">
+
+        <button type="submit" class="btn-salvar">
+          💾 Salvar perfil
+        </button>
+
+        <button type="button" class="btn-limpar" (click)="limparPerfil()">
+          🧹 Limpar perfil
+        </button>
+
+      </div>
+
+    </form>
+
+  </section>
+
+  <section class="cartao-sobre" *ngIf="perfil.sobre">
+
+    <h2>Sobre minha jornada</h2>
+
+    <p>
+      {{ perfil.sobre }}
+    </p>
+
+  </section>
+
+</div>

@@ -1,0 +1,347 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.pagina-perfil {
+  width: 100%;
+  max-width: 1150px;
+}
+
+/* Cabeçalho */
+
+.cabecalho {
+  margin-bottom: 30px;
+}
+
+.cabecalho h1 {
+  margin: 0 0 10px;
+  color: #0f172a;
+}
+
+.cabecalho p {
+  margin: 0;
+  color: #64748b;
+}
+
+/* Cartão de resumo do perfil */
+
+.cartao-perfil {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  background: #ffffff;
+  padding: 28px;
+
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  font-size: 27px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+.resumo-perfil {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.resumo-perfil h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.resumo-perfil p {
+  margin: 0;
+  color: #475569;
+  font-weight: 600;
+}
+
+.resumo-perfil span {
+  color: #64748b;
+}
+
+.objetivo {
+  margin-top: 8px;
+  color: #2563eb;
+}
+
+/* Formulário */
+
+.formulario-perfil {
+  background: #ffffff;
+  padding: 32px;
+
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 24px;
+}
+
+.formulario-perfil h2 {
+  margin: 0 0 25px;
+  color: #0f172a;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-bottom: 22px;
+}
+
+.campo label {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  font: inherit;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Mensagem */
+
+.mensagem {
+  margin: 0 0 18px;
+
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* Botões */
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.btn-salvar,
+.btn-limpar,
+.btn-excluir {
+  min-width: 180px;
+
+  padding: 14px 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.btn-salvar {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-salvar:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.btn-limpar {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.btn-limpar:hover {
+  background: #d97706;
+
+  transform: translateY(-2px);
+}
+
+.btn-excluir {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-excluir:hover {
+  background: #b91c1c;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(220, 38, 38, 0.25);
+}
+
+@media (max-width: 768px) {
+
+  .acoes {
+    flex-direction: column;
+  }
+
+  .btn-salvar,
+  .btn-limpar,
+  .btn-excluir {
+    width: 100%;
+  }
+
+}
+/* Sobre minha jornada */
+
+.cartao-sobre {
+  background: #ffffff;
+  padding: 28px;
+
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 24px;
+}
+
+.cartao-sobre h2 {
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+.cartao-sobre p {
+  margin: 0;
+
+  color: #475569;
+  line-height: 1.7;
+
+  white-space: pre-line;
+}
+
+/* Estatísticas */
+
+.estatisticas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.card-estatistica {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  min-height: 90px;
+
+  background: #ffffff;
+  padding: 24px;
+
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icone-estatistica {
+  font-size: 32px;
+}
+
+.card-estatistica p {
+  margin: 0 0 8px;
+  color: #64748b;
+}
+
+.card-estatistica strong {
+  color: #2563eb;
+  font-size: 26px;
+}
+
+/* Responsividade para tablet */
+
+@media (max-width: 900px) {
+  .estatisticas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsividade para celular */
+
+@media (max-width: 768px) {
+  .linha {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .cartao-perfil {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .formulario-perfil,
+  .cartao-perfil,
+  .cartao-sobre,
+  .card-estatistica {
+    padding: 22px;
+  }
+
+  .acoes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-salvar,
+  .btn-limpar {
+    width: 100%;
+  }
+}
